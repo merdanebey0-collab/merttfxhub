@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MertFXhub - Video Edit & Asset Merkezi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Mert<span>FX</span>hub</div>
+    <div class="nav-right" id="navAuthSection"></div>
+  </nav>
+
+  <header class="hero">
+    <h1>Mert<span>FX</span>hub</h1>
+    <p>After Effects, Alight Motion ve Node Video Kaynak & Preset Platformu</p>
+  </header>
+
+  <main class="container">
+    <div class="search-filter-section">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Preset, Shake, CC veya Velocity ara...">
+      </div>
+
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-category="all">Tümü</button>
+        <button class="filter-btn" data-category="ae">After Effects</button>
+        <button class="filter-btn" data-category="am">Alight Motion</button>
+        <button class="filter-btn" data-category="nv">Node Video</button>
+      </div>
+    </div>
+
+    <div class="grid" id="assetGrid"></div>
+  </main>
+
+  <!-- Giriş / Kayıt Modalı -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="authTitle">Giriş Yap</h2>
+        <button class="close-btn" id="closeAuthModalBtn">&times;</button>
+      </div>
+      <form id="authForm">
+        <div class="form-group">
+          <label>Kullanıcı Adı</label>
+          <input type="text" id="authUsername" placeholder="Kullanıcı adınız" required>
+        </div>
+        <div class="form-group">
+          <label>Şifre</label>
+          <input type="password" id="authPassword" placeholder="Şifreniz" required>
+        </div>
+        <button type="submit" class="submit-btn" id="authSubmitBtn">Giriş Yap</button>
+      </form>
+      <div class="auth-toggle">
+        <span id="authToggleText">Hesabın yok mu?</span>
+        <button id="toggleAuthModeBtn">Kayıt Ol</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preset Yükleme Modalı (Gerçek Dosya Seçimi) -->
+  <div class="modal-overlay" id="uploadModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Yeni Preset Yükle</h2>
+        <button class="close-btn" id="closeUploadModalBtn">&times;</button>
+      </div>
+      <form id="presetUploadForm">
+        <div class="form-group">
+          <label>Preset Başlığı</label>
+          <input type="text" id="inputTitle" placeholder="Örn: 4K Ultra Smooth Shake" required>
+        </div>
+        <div class="form-group">
+          <label>Yazılım / Kategori</label>
+          <select id="selectCategory" required>
+            <option value="ae">After Effects (.ffx / .aep)</option>
+            <option value="am">Alight Motion (.xml)</option>
+            <option value="nv">Node Video (.zip)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preset Dosyası Seç (.ffx, .xml, .zip, .aep)</label>
+          <input type="file" id="inputFile" required>
+        </div>
+        <div class="form-group">
+          <label>Açıklama</label>
+          <textarea id="inputDesc" rows="3" placeholder="Preset açıklaması..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn"><i class="fa-solid fa-cloud-arrow-up"></i> Yükle ve Yayına Al</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
